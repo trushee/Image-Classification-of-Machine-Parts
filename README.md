@@ -18,3 +18,7 @@ Here is the link to the dataset: https://www.kaggle.com/datasets/salmaneunus/mec
 
 As an added measure to enhance the accuracy of our trained model, we've gone the extra mile by incorporating an additional dataset comprising random pictures with almost 18k diverse and varied images.
 
+Our machine learning model is seamlessly deployed using the widely-adopted JSON format, facilitating effortless saving and loading on local devices for enhanced user convenience.
+
+# In process
+We are currently in the process of deploying our project via a user-friendly website, powered by Flask, enabling users to upload images and receive accurate machine part predictions effortlessly.
