@@ -96,14 +96,14 @@ def success():
                 file.save(os.path.join(target_img , file.filename))
                 img_path = os.path.join(target_img , file.filename)
                 img = file.filename
-
+		path = os.path.join('static\images',file.filename)
                 class_result = predict(img_path , model)
 
             else:
                 error = "Please upload images of jpg , jpeg and png extension only"
 
             if(len(error) == 0):
-                return  render_template('success.html' , img  = img , prediction = class_result)
+                return  render_template('success.html' , img  = path , prediction = class_result)
             else:
                 return render_template('index.html' , error = error)
 
