@@ -22,11 +22,12 @@
 <style>
     html{
     scroll-behavior: smooth;
+    margin: 10px;
 }
 
 body{
     background-color: #181818;
-    margin: 0;
+    margin: 10px;
     padding: 0;
     overflow-x: hidden;
 }
@@ -95,11 +96,13 @@ input[type=file]::file-selector-button {
     font-family: "Josefin Sans";
     color: #f3f7f7;
     position: relative;
-    top: 25vw;
-    right: 42vw;
+    top: 10vw;
+    right: 15vw;
     border-radius: 5px;
     border-color: rgb(172, 242, 242);
-    font-size: large;
+    font-size: larger;
+    padding: 5px;
+    margin:10px;
 
   }
 
@@ -110,12 +113,22 @@ input[type=file]::file-selector-button {
     color: #03d0cc;
     position: relative;
     top: 22vw;
-    right: 42vw;
+    right: 43vw;
     border-radius: 5px;
     border-color: rgb(172, 242, 242);
     font-size: large;
+    padding: 5px;
+    margin:10px;
 
   
+  }
+
+  .img3{
+    height: 300px;
+    width: auto;
+    position: relative;
+    top: 25vw;
+    right: 42vw;
   }
 
 </style>
@@ -137,8 +150,13 @@ input[type=file]::file-selector-button {
                 <button id ="upload2">Predict</button>
              </form>
              {% if img %}
-             <!-- <img src={{img}}> -->
+             <img class="img3" src={{img}}>
+             <!-- <h1>{{img}}</h1> -->
                 <h1 class="head1">prediction: {{prediction}} </h1>
+
+                <br>
+                <br>
+                <br>
                 <!-- <h1 class="head2"></h1> -->
                 
 {% endif %}
