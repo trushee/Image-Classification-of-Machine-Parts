@@ -17,7 +17,11 @@ We have seamlessly integrated a powerful tech stack featuring prominent librarie
 with prediction
 
 
-![image](https://github.com/trushee/Image-Classification-of-Machine-Parts/assets/104219535/56297fab-a4d6-4311-816b-046d9a8b21ab)
+![image](https://github.com/trushee/Image-Classification-of-Machine-Parts/assets/104219535/e17f7432-7018-48d1-b17b-e1bceb893474)
+
+![image](https://github.com/trushee/Image-Classification-of-Machine-Parts/assets/104219535/02b5f5dc-5ba4-4d2e-a448-582279b5d225)
+
+
 
 
 
