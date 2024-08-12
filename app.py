@@ -24,7 +24,7 @@ from keras.models import load_model, model_from_json
 # # model.evaluate()
 # print("Loaded model from disk")
 from keras.models import load_model
-model = load_model("./model.h5")
+model = load_model("./best_model.keras")
 
 
 ALLOWED_EXT = set(['jpg' , 'jpeg' , 'png' , 'jfif'])
