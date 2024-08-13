@@ -3,27 +3,19 @@ import uuid
 import flask
 import urllib
 from PIL import Image
-from tensorflow.keras.models import load_model
 from flask import Flask , render_template  , request , send_file
-from tensorflow.keras.preprocessing.image import load_img , img_to_array
+from keras.preprocessing.image import load_img , img_to_array
+import keras
 from keras.applications.inception_v3 import InceptionV3, preprocess_input
 import numpy as np
+from tensorflow.python.keras.models import model_from_json
 import tensorflow as tf
 
 app = Flask(__name__)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-from keras.models import load_model, model_from_json
-# json_file = open('classify.json', 'r')
-# loaded_model_json = json_file.read()
-# json_file.close()
-# model = model_from_json(loaded_model_json,{"tf":tf})
-# # load weights into new model
 
-# model.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"])
-# model.load_weights("besmodel.h5")
-# # model.evaluate()
-# print("Loaded model from disk")
 from keras.models import load_model
+
 model = load_model("./best_model.keras")
 
 
@@ -80,35 +72,36 @@ def predict(filename , model):
 
 @app.route('/')
 def home():
-        return render_template("index.html")
+    return render_template("success.html")
 
 @app.route('/success' , methods = ['GET' , 'POST'])
 def success():
     error = ''
-    target_img = os.path.join(os.getcwd() , 'static\images')
+    target_img = os.path.join(os.getcwd() , 'static/images')
     if request.method == 'POST':
-        
 
-            
-        if (request.files):
+        if request.files:
             file = request.files['img1']
             if file and allowed_file(file.filename):
-                file.save(os.path.join(target_img , file.filename))
-                img_path = os.path.join(target_img , file.filename)
+                file.save(os.path.join(target_img, file.filename))
+                img_path = os.path.join(target_img, file.filename)
                 img = file.filename
-		path = os.path.join('static\images',file.filename)
-                class_result = predict(img_path , model)
+                path = os.path.join("static/images", file.filename)
+                class_result = predict(img_path, model)
+
 
             else:
                 error = "Please upload images of jpg , jpeg and png extension only"
 
             if(len(error) == 0):
+                print("here-pred")
                 return  render_template('success.html' , img  = path , prediction = class_result)
             else:
-                return render_template('index.html' , error = error)
+                print("here-noerr")
+                return render_template('success.html' , error = error)
 
     else:
         return render_template('index.html')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000,debug = True)
+    app.run(debug = True)
