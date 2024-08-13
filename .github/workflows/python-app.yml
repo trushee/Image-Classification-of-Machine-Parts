@@ -37,7 +37,7 @@ jobs:
 
     - name: Run Flask App
       run: |
-        nohup flask run --host=0.0.0.0 &
+        nohup flask run
     - name: Test the application
       run: curl -v http://localhost:8080/
 
